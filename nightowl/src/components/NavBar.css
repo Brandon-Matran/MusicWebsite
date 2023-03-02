@@ -1,0 +1,48 @@
+.nav-bar-container {
+    text-align: right;
+    background: linear-gradient(90deg, rgba(255,216,155,1) 0%, rgba(25,84,123,1) 100%);
+
+    border-style: solid;
+    border-image: linear-gradient(90deg, rgba(255,216,155,1) 0%, rgba(25,84,123,1) 100%) 20;
+    font-size: 2rem;
+    color: white;
+    font-family:'Montserrat', sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 1.5rem;
+
+}
+
+ul > li:hover {
+    cursor: pointer;
+
+
+}
+
+.home:hover {
+    color: lightsalmon;
+}
+
+.events:hover {
+    color: rgb(105, 170, 192)
+}
+
+.music:hover {
+    color: rgb(172, 44, 172)
+}
+
+.store:hover {
+    color: yellow
+}
+
+.owl {
+width: 150px;
+height: 150px;
+}
