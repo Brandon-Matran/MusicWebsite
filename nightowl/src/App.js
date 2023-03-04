@@ -5,8 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Events } from "./components/Events";
 import { EventsForm } from "./components/EventsForm";
 import { Card } from "./components/Card";
+import { MusicPlayer } from "./components/MusicPlayer";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import tracks from "./track"
 function App() {
   return (
     <>
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="test">
             <Route path="" element={<Card />} />
+          </Route>
+          <Route path="music">
+            <Route path="" element={<MusicPlayer tracks={tracks}/>} />
           </Route>
         </Routes>
       </BrowserRouter>
