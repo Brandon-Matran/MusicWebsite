@@ -1,0 +1,22 @@
+.cardEvents {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.eventButton {
+    display:flex;
+    justify-content: center;
+    border-radius: 50px;
+
+}
+
+.buttonEvent {
+    border-radius: 50px;
+    font-size: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+
+    background-color: rgba(25,84,123)
+
+}

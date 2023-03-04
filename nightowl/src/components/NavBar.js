@@ -1,13 +1,13 @@
 import React from "react";
 import "./NavBar.css";
 import nightowl from "../assets/nightowl.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export const NavBar = () => {
   return (
     <div>
       <nav>
-        <div className="nav-bar-container">
+        <div className="nav-bar-container links">
           <img src={nightowl} alt="nightowl" className="owl" />
           <ul style={{ listStyleType: "none" }}>
             <li>
@@ -20,7 +20,11 @@ export const NavBar = () => {
                 Events
               </NavLink>
             </li>
-            <li className="music">Music</li>
+            <li>
+              <Link className="music" to="/music" aria-current="page">
+                Music
+              </Link>
+            </li>
             <li className="store">Store</li>
           </ul>
         </div>

@@ -1,12 +1,11 @@
 .nav-bar-container {
     text-align: right;
-    background: linear-gradient(90deg, rgba(255,216,155,1) 0%, rgba(25,84,123,1) 100%);
-
+    background: linear-gradient(90deg, rgba(255, 216, 155, 1) 0%, rgba(25, 84, 123, 1) 100%);
     border-style: solid;
-    border-image: linear-gradient(90deg, rgba(255,216,155,1) 0%, rgba(25,84,123,1) 100%) 20;
+    border-image: linear-gradient(90deg, rgba(255, 216, 155, 1) 0%, rgba(25, 84, 123, 1) 100%) 20;
     font-size: 2rem;
     color: white;
-    font-family:'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
@@ -20,14 +19,20 @@ ul {
 
 }
 
-ul > li:hover {
+.links:hover {
     cursor: pointer;
+}
 
-
+.home,
+.music,
+.events {
+    text-decoration: none;
+    color: white
 }
 
 .home:hover {
     color: lightsalmon;
+
 }
 
 .events:hover {
@@ -43,6 +48,6 @@ ul > li:hover {
 }
 
 .owl {
-width: 150px;
-height: 150px;
+    width: 150px;
+    height: 150px;
 }

@@ -50,6 +50,17 @@ connect();
 
 //endpoints
 
+app.get('/events', async (req, res) => {
+  try {
+    const events = await Event.find();
+    console.log(`Found these events ${events}`);
+    res.json(events);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send('Server Error');
+  }
+});
+
 app.post("/events", async (req, res) => {
   try {
     const newEvent = await Event.create(req.body);
@@ -62,6 +73,6 @@ app.post("/events", async (req, res) => {
 });
 
 // establish connection to node.js server
-app.listen(5060, () => {
-  console.log("Connected to port 5060");
+app.listen(5000, () => {
+  console.log("Connected to port 5000");
 });

@@ -2,8 +2,10 @@ import "./App.css";
 import { MainPage } from "./components/MainPage";
 import { NavBar } from "./components/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Events } from "./components/Events"
+import { Events } from "./components/Events";
 import { EventsForm } from "./components/EventsForm";
+import { Card } from "./components/Card";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
           <Route path="events">
             <Route path="" element={<Events />} />
             <Route path="new" element={<EventsForm />} />
+          </Route>
+          <Route path="test">
+            <Route path="" element={<Card />} />
           </Route>
         </Routes>
       </BrowserRouter>
