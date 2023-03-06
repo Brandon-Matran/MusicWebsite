@@ -3,6 +3,8 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+
+require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
@@ -36,11 +38,11 @@ const Event = mongoose.model("Event", eventSchema);
 
 //establish the connection to MongoDb
 
-const uri = "mongodb+srv://bmatran:admin@cluster27946.yd9gxwv.mongodb.net/myDatabase?retryWrites=true&w=majority";
+const url = process.env.uri
 
 async function connect() {
   try {
-    await mongoose.connect(uri);
+    await mongoose.connect(url);
     console.log("Connected to MongoDB");
   } catch (e) {
     console.log(e);
