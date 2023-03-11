@@ -2,6 +2,7 @@ import kintsugi from "./assets/Kintsugi.wav";
 import gold from "./assets/Gold.mp3"
 import hollow from "./assets/hollow.jpg";
 import saidthesky from "./assets/saidthesky.jpeg"
+
 const tracks = [
   {
     title: "Kintsugi",

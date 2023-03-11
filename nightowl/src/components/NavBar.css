@@ -25,7 +25,8 @@ ul {
 
 .home,
 .music,
-.events {
+.events,
+.store {
     text-decoration: none;
     color: white
 }

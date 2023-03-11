@@ -2,14 +2,16 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-const eventRouter = require("./routes/events")
+const eventRouter = require("./routes/events");
+const shopRouter = require("./routes/shop");
 
-require('dotenv').config();
+require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 app.use("/", eventRouter);
+app.use("/", shopRouter);
 
-const url = process.env.uri
+const url = process.env.uri;
 
 async function connect() {
   try {

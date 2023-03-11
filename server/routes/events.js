@@ -7,7 +7,6 @@ const Event = require("../models/Events.js");
 router.get("/events", async (req, res) => {
   try {
     const events = await Event.find();
-    console.log(`Found these events ${events}`);
     res.json(events);
   } catch (e) {
     console.log(e);
@@ -19,7 +18,6 @@ router.get("/events", async (req, res) => {
 router.get("/events/:id", async (req, res) => {
   try {
     const event = await Event.findById(req.params.id);
-    console.log(event);
     res.json(event);
   } catch (e) {
     console.log(e);
@@ -40,14 +38,12 @@ router.post("/events", async (req, res) => {
 
 router.put("/events/:id", async (req, res) => {
   const url = req.body;
-  console.log("CHECK", url);
   try {
     const event = await Event.findOneAndUpdate(
       { _id: req.params.id },
       { $set: url },
       { new: true, upsert: true }
     );
-    console.log(event);
     if (!event) {
       res.send({ message: "Event not found" });
     }

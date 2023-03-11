@@ -15,3 +15,7 @@
     background-color: rgba(25,84,123)
 
 }
+
+.card-title {
+    width: fit-content;
+}

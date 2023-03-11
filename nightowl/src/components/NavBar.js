@@ -25,7 +25,11 @@ export const NavBar = () => {
                 Music
               </Link>
             </li>
-            <li className="store">Store</li>
+            <li>
+              <Link className="store" to="/shop" aria-current="page">
+                Store
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

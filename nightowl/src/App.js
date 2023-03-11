@@ -7,7 +7,8 @@ import { EventsForm } from "./components/EventsForm";
 import { Card } from "./components/Card";
 import { MusicPlayer } from "./components/MusicPlayer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import tracks from "./track"
+import tracks from "./track";
+import { Shop } from "./components/Shop";
 function App() {
   return (
     <>
@@ -23,7 +24,10 @@ function App() {
             <Route path="" element={<Card />} />
           </Route>
           <Route path="music">
-            <Route path="" element={<MusicPlayer tracks={tracks}/>} />
+            <Route path="" element={<MusicPlayer tracks={tracks} />} />
+          </Route>
+          <Route path="shop">
+            <Route path="" element={<Shop />} />
           </Route>
         </Routes>
       </BrowserRouter>
