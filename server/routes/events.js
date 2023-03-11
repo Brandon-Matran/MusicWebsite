@@ -1,19 +1,60 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-// const Event = require('../models/Event'); // assuming you have a model defined for your Event collection
-// const Event = mongoose.model("Event", eventSchema);
-// endpoint to get all events
-
+const Event = require("../models/Events.js");
 
 // endpoint to add a new event
-router.post('/events', async (req, res) => {
+//Get all events
+router.get("/events", async (req, res) => {
   try {
-    const newEvent = new Event(req.body);
-    await newEvent.save();
-    res.json(newEvent);
+    const events = await Event.find();
+    console.log(`Found these events ${events}`);
+    res.json(events);
   } catch (e) {
     console.log(e);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
+  }
+});
+
+//Get one event
+router.get("/events/:id", async (req, res) => {
+  try {
+    const event = await Event.findById(req.params.id);
+    console.log(event);
+    res.json(event);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("Server Error");
+  }
+});
+
+router.post("/events", async (req, res) => {
+  try {
+    const newEvent = await Event.create(req.body);
+    res.json(newEvent);
+    console.log(`Success! Created ${newEvent}`);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("Server Error");
+  }
+});
+
+router.put("/events/:id", async (req, res) => {
+  const url = req.body;
+  console.log("CHECK", url);
+  try {
+    const event = await Event.findOneAndUpdate(
+      { _id: req.params.id },
+      { $set: url },
+      { new: true, upsert: true }
+    );
+    console.log(event);
+    if (!event) {
+      res.send({ message: "Event not found" });
+    }
+    res.json(event);
+  } catch (err) {
+    res.json(err);
+    console.error(err);
   }
 });
 

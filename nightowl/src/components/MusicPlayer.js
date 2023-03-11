@@ -8,6 +8,7 @@ export const MusicPlayer = ({ tracks }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   // Destructure for conciseness
+  //the below is object destructuring where we are able to extract properties of that object into single variables to use as we need
   const { title, artist, color, image, audioSrc } = tracks[trackIndex];
 
   // Refs
@@ -17,6 +18,7 @@ export const MusicPlayer = ({ tracks }) => {
 
   // Destructure for conciseness
   const { duration } = audioRef.current;
+
 
   const currentPercentage = duration
     ? `${(trackProgress / duration) * 100}%`
@@ -39,10 +41,13 @@ export const MusicPlayer = ({ tracks }) => {
   };
 
   const onScrub = (value) => {
+ 
     // Clear any timers already running
     clearInterval(intervalRef.current);
     audioRef.current.currentTime = value;
-    setTrackProgress(audioRef.current.currentTime);
+
+
+    setTrackProgress(value);
   };
 
   const onScrubEnd = () => {
@@ -79,13 +84,15 @@ export const MusicPlayer = ({ tracks }) => {
   }, [isPlaying]);
 
   // Handles cleanup and setup when changing tracks
+
   useEffect(() => {
     audioRef.current.pause();
 
     audioRef.current = new Audio(audioSrc);
     setTrackProgress(audioRef.current.currentTime);
 
-    if (isReady.current) {
+
+    if (isReady.current === true) {
       audioRef.current.play();
       setIsPlaying(true);
       startTimer();
@@ -120,17 +127,17 @@ export const MusicPlayer = ({ tracks }) => {
           onPlayPauseClick={setIsPlaying}
         />
         <input
-         type="range"
-         value={trackProgress}
-         step="1"
-         min="0"
-         max={duration ? duration : `${duration}`}
-         className="progress"
-         onChange={(e) => onScrub(e.target.value)}
-         onMouseUp={onScrubEnd}
-         onKeyUp={onScrubEnd}
-         style={{ background: trackStyling}}
-         />
+          type="range"
+          value={trackProgress}
+          step="1"
+          min="0"
+          max={duration ? duration : `${duration}`}
+          className="progress"
+          onChange={(e) => onScrub(e.target.value)}
+          onMouseUp={onScrubEnd}
+          onKeyUp={onScrubEnd}
+          style={{ background: trackStyling }}
+        />
       </div>
     </div>
   );
