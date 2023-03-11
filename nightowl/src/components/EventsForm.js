@@ -6,11 +6,13 @@ export const EventsForm = () => {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const [eventUrl, setImageURL] = useState("");
   const [date, setDate] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const data = { name, location, description, date };
+    const data = { name, location, description, date, eventUrl };
+    console.log(data);
     const url = "http://localhost:5000/events";
     const fetchConfig = {
       method: "post",
@@ -26,6 +28,7 @@ export const EventsForm = () => {
       setLocation("");
       setDescription("");
       setDate("");
+      setImageURL("");
     }
   }
 
@@ -74,6 +77,17 @@ export const EventsForm = () => {
             placeholder="date"
             onChange={(e)=> setDate(e.target.value)}
             value={date}
+          />
+        </div>
+        <div className="">
+          <label>Image</label>
+          <input
+            type="text"
+            className="form-control"
+            id="url"
+            placeholder="Image URL"
+            onChange={(e)=> setImageURL(e.target.value)}
+            value={eventUrl}
           />
         </div>
         <button type="submit" className="btn btn-primary">
