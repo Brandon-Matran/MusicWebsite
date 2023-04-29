@@ -4,13 +4,13 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const eventRouter = require("./routes/events");
 const shopRouter = require("./routes/shop");
-
+const userRouter = require("./routes/users");
 require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 app.use("/", eventRouter);
 app.use("/", shopRouter);
-
+app.use("/", userRouter);
 const url = process.env.uri;
 
 async function connect() {
